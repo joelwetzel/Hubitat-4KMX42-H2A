@@ -79,6 +79,10 @@ void processMqttMessage(char *topic, byte *payload, unsigned int length)
   {
     refresh();
   }
+  else if (newTopic == "hubitat/" USER_DEVICE_NETWORK_ID "/commands/reboot")
+  {
+    ESP.restart();
+  }
 }
 
 void readFromSerial()
@@ -161,6 +165,7 @@ void reconnect()
         client.subscribe("hubitat/" USER_DEVICE_NETWORK_ID "/commands/setSwitch");
         client.subscribe("hubitat/" USER_DEVICE_NETWORK_ID "/commands/setInputSource");
         client.subscribe("hubitat/" USER_DEVICE_NETWORK_ID "/commands/refresh");
+        client.subscribe("hubitat/" USER_DEVICE_NETWORK_ID "/commands/reboot");
       }
       else
       {
