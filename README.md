@@ -8,13 +8,13 @@ First I had to find an HDMI switch with the features I wanted, that I believed I
 - With HDCP 2.2, it supports resolutions up to 4K@60Hz HDR.
 - It can be controlled via Serial interface.  The API reference is here:  https://avaccess.com/wp-content/uploads/2022/03/API-Command-Set_4KMX42-H2A-V1.0.0.pdf
 
-Next, this hdmi switch can be controlled via Serial.  How am I going to connect to that from Hubitat?  There are probably many ways, but my approach was:
+Next, this hdmi switch can be controlled via Serial.  How to connect to that from Hubitat?  There are many ways, but my approach was:
 
 1. Write a driver for Hubitat.  This driver publishes/subscribesTo messages over MQTT.
 2. I already had an MQTT server running in my network, for other projects.
 3. Write firmware for an ESP8266 board.  It will publish/subscribeTo messages over MQTT, in order to communicate with the Hubitat driver.
 4. The ESP board can talk to the HDMI switch over serial.  However, ESP8266 outputs serial as TTY, not RS232.  The HDMI switch expects RS232.  So I have to pass the signal through a converter:  https://www.amazon.com/gp/product/B091TN2ZPY/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 
-Of course this could be done without MQTT.  My ESP firmware could expose a webserver for the Hubitat driver to contact directly.  But I've already had experience and success mediating through MQTT, and especially like the traceability it gives me while debugging.  So I've kept that complication.
+***Sidenote:  Of course this could be done without MQTT...  My ESP firmware could expose a webserver for the Hubitat driver to contact directly.  But I've already had experience and success mediating through MQTT, and especially like the traceability it gives me while debugging.  So I've kept that complication.***
 
 TODO: Document the hardware/firmware more.
