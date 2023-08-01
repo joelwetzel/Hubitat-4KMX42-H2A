@@ -17,4 +17,8 @@ Next, this hdmi switch can be controlled via Serial.  How to connect to that fro
 
 ***Sidenote:  Of course this could be done without MQTT...  My ESP firmware could expose a webserver for the Hubitat driver to contact directly.  But I've already had experience and success mediating through MQTT, and especially like the traceability it gives me while debugging.  So I've kept that complication.***
 
-TODO: Document the hardware/firmware more.
+![esp_hdmi_switch](https://github.com/joelwetzel/Hubitat-4KMX42-H2A/assets/5503931/dd6dbf99-1c6e-4e6f-b5c7-ef1ee5fe189a)
+
+- In this photo, you can see the TTY -> RS232 converter.
+- The only output wires from the ESP8266 are the 4 necessary for serial communication.
+- I put a switch inline on the red wire.  I flip this switch (to disconnect the red wire) if I need to reprogram the ESP over its USB port.  If you don't do this, the serial communications to the 4KMX42 interfere with the serial communications across the USB port, preventing reprogramming.
