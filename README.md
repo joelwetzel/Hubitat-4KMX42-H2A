@@ -8,7 +8,7 @@ First I had to find an HDMI switch with the features I wanted, that I believed I
 - With HDCP 2.2, it supports resolutions up to 4K@60Hz HDR.
 - It can be controlled via Serial interface.  The API reference is here:  https://avaccess.com/wp-content/uploads/2022/03/API-Command-Set_4KMX42-H2A-V1.0.0.pdf
 
-***Sidenote about HDMI switches:  HDMI switches are notorious for interrupting the EDID handshakes between source devices and TVs.  Some sources can handle this gracefully, and some can't.  I discovered that the Apple TV had trouble with it, which would manifest as the screen periodically going blank.  I solved this by buying and installing a [Dr.HDMI EDID Manager](https://hdfury.com/product/dr-hdmi-8k/) in between the Apple TV and the HDMI Switch.  This device provides a constant EDID signal to the Apple TV, alleviating the issues.***
+***Sidenote about HDMI switches:  HDMI switches are notorious for interrupting the EDID handshakes between source devices and TVs.  Some sources can handle this gracefully, and some can't.  I discovered that the Apple TV had trouble with it, which would manifest as the screen periodically going blank.  I solved this by buying and installing a [Dr.HDMI EDID Manager](https://hdfury.com/product/dr-hdmi-8k/) in between the Apple TV and the HDMI Switch.  This device provides a steady EDID handshake to the Apple TV, alleviating the issues.***
 
 Next, this hdmi switch can be controlled via Serial.  How to connect to that from Hubitat?  There are many ways, but my approach was:
 
